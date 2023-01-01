@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Switch between Ripgrep launcher mode (CTRL-R) and fzf filtering mode (CTRL-F)
+RG_PREFIX="rg -g '!{.git}/*' --hidden --sort-files --column --line-number --no-heading --color=always --smart-case "
+IFS=: read -ra selected < <(
+  FZF_DEFAULT_COMMAND="fd -H -t f -c=never -E=$FD_IGNORE" \
+  fzf --ansi \
+      --color "fg:#0078d4,bg:#212121,preview-fg:#e8e28d,preview-bg:#3b4254,pointer:#fff100" \
+      --disabled --query "$INITIAL_QUERY" \
+      --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+      --bind "ctrl-f:unbind(ctrl-f)+change-prompt(1. find> )+disable-search+clear-query+reload(fd -H -t f -c=never -E=$FD_IGNORE)+rebind(change,ctrl-r)" \
+      --bind "ctrl-r:unbind(change,ctrl-r)+change-prompt(2. query> )+enable-search+clear-query+reload($RG_PREFIX {q} || true)+rebind(ctrl-f)" \
+      --prompt '1. find> ' \
+      --delimiter : \
+      --header '╱ CTRL-F (find mode) ╱ CTRL-R (query mode) ╱' \
+      --preview 'highlight -O ansi -l {1} || bat --color=always {1} --highlight-line {2}' \
+      --preview-window 'up,60%,border,+{2}+3/3' --border --height '100%'
+
+)
+[ -n "${selected[0]}" ] && nvim "${selected[0]}" "+${selected[1]}"
