@@ -1,4 +1,4 @@
-function funlist() { grep "^#" $ZSH/config/function.zsh | awk 'gsub("#","");' }
+function funlist() { grep "^#" $ZDOTDIR/config/function.zsh | awk 'gsub("#","");' }
 
 #
 

@@ -1,14 +1,14 @@
 export BAT_THEME="gruvbox-dark"                                                                
-export EDITOR='nvim'                                                                           
-export FD_IGNORE="{.git,.idea,.tldr,.cache,.local,.npm,node_moudles,.config/zsh,.config/z}"    
-export RG_IGNORE="!{.git,.idea,.tldr,.cache,.local,.npm,node_moudles,.config/zsh,.config/z}/*" 
+export COMMON_IGNORE="{.arch-profile,.cache,.local,.config,.git}"
+export FD_IGNORE="$COMMON_IGNORE"    
+export RG_IGNORE="!$COMMON_IGNORE/*" 
 export FZF_DEFAULT_OPTS="--layout=reverse --preview-window=down --height=90%"                
 export FZF_DEFAULT_COMMAND="fd -H -c=never -E=$FD_IGNORE"                                      
 export FZF_COLOR="--color 'fg:#0078d4,bg:#212121,pointer:#fff100'"                             
-export RANGER_ZLUA="$ZSH/plugins/z/z.lua"                                                      
-export ZDOTDIR="~/.config/zsh"                                                                 
-export _ZL_DATA="~/.config/z/.zlua"
+export RANGER_ZLUA="$HOME/.config/z.lua/z.lua"
+export _ZL_DATA="$HOME/.config/z.lua/history"
 export PAGER="most"
+export EDITOR='nvim'                                                                           
 export GPG_TTY=$(tty)
 
 # git format
@@ -32,6 +32,16 @@ export GIT_TAG_FORMAT="--format='%(color:green)Tag: %(color:reset)%(refname:shor
 %(color:green)Date: %(color:red)%(taggerdate:format:%y/%m/%d %H:%M)
 %(color:green)Message: %(color:cyan)%(contents)'"
 
+export GIT_CONFIG_COUNT=3
+
+export GIT_CONFIG_KEY_0="alias.b" 
+export GIT_CONFIG_VALUE_0="branch $GIT_BRANCH_FORMAT"
+
+export GIT_CONFIG_KEY_1="alias.lf" 
+export GIT_CONFIG_VALUE_1="log $GIT_LOG_FORMAT"
+
+export GIT_CONFIG_KEY_2="alias.t" 
+export GIT_CONFIG_VALUE_2="tag $GIT_TAG_FORMAT"
 
 # nodejs
 export NODE_HOME=/usr/local/node

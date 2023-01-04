@@ -11,7 +11,7 @@ bindkey -e
 autoload -U colors && colors
 autoload -U compinit && compinit
 
-eval "$(dircolors $ZSH/dir_colors)"
+eval "$(dircolors $ZDOTDIR/dir_colors)"
 
 zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}

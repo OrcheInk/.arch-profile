@@ -1,5 +1,5 @@
-source $ZSH/theme/git_info.zsh
-source $ZSH/theme/svn_info.zsh
+source $ZDOTDIR/theme/git_info.zsh
+source $ZDOTDIR/theme/svn_info.zsh
 
 # VCS
 YS_VCS_PROMPT_PREFIX1=" %{$reset_color%}on%{$fg[blue]%} "
