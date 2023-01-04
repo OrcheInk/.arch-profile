@@ -1,0 +1,255 @@
+[alias]
+
+# <add>
+    a = add
+    aa = add -A
+    aA = add --no-all
+    ae = add -e
+    ai = add -i
+    an = add -N
+    ap = add -p
+    au = add -u
+    ax = add --chmod = +x
+    aX = add --chmod = -x
+
+# <apply>
+    ay = apply
+
+# <branch>
+   # b = branch $GIT_BRANCH_FORMAT
+    ba = branch -avv
+    br = branch -rvv
+    bc = branch -c
+    bC = branch -C
+    bd = branch -d
+    bD = branch -D
+    bu = branch -u
+    bm = branch -m
+    bM = branch -M
+    be = branch --edit-description
+    bU = branch --unset-upstream
+    bp = branch --points-at
+    bco = branch --contains
+    bCO = branch --no-contains
+    bme = branch --merged
+    bME = branch --no-merged
+
+# <clone>
+    cl = clone
+    clb = clone --bare
+    clo = clone -o
+    cld = clone --depth
+
+# <commit>
+    c = commit
+    ca = commit -am
+    cam = commit --amend
+    ci = commit --interactive
+
+# <checkout>
+    co = checkout
+    cob = checkout -b
+    cot = checkout -t
+    cop = checkout -p
+
+# <cherry-pick>
+    cp = cherry-pick
+    cpn = cherry-pick -n
+    cpc = cherry-pick --continue
+    cpk = cherry-pick --skip
+    cpa = cherry-pick --abort
+    cpq = cherry-pick --quit
+
+# <config>
+    con = config
+    cona = config --get-all
+    conx = config --get-regexp
+    conu = config --unset
+    conua = config --unset-all
+    conra = config --replace-all
+    conrn = config --rename-section
+    conrm = config --remove-section
+    conse = config --edit --system
+    conge = config --edit --global 
+    conle = config --edit --local
+    cond = config -l
+    cons = config -l --system
+    cong = config -l --global
+    conl = config -l --local
+    conso = config -l --show-origin
+    conss = config -l --show-scope
+
+# <describe>
+    d = describe
+    dt = describe --tags
+
+# <diff>
+    df = diff
+
+# <difftool>
+    dit = difftool
+    dith = difftool --tool-help
+    ditt = difftool -t
+
+# <e>
+# <fetch>
+    f = fetch
+
+# <g>
+# <h>
+# <init>
+    i = init
+    ib = init -b
+    ie = init --bare
+    is = init --shared
+
+# <j>
+# <k>
+# <log>
+    l = log "$GIT_LOG_FORMAT"
+    al = log --all $GIT_LOG_FORMAT
+    o = log --oneline --graph
+    ao = log --oneline --graph --all
+
+# <merge>
+    m = merge
+    mc = merge --continue
+    ma = merge --abort
+    mq = merge --quit
+    mm = merge -m
+
+# <mergetool>
+    met = mergetool
+    mett = mergetool -t
+    meth = mergetool --tool-help
+
+# <mv>
+    mv = mv
+    MV = mv -f
+
+# <notes>
+    n = notes
+    na = notes add
+    nc = notes copy
+    ncf = notes copy -f
+    nap = notes append
+    ne = notes edit
+    ns = notes show
+    nr = notes remove
+    nm = notes merge
+    np = notes prune
+    ng = notes get-ref
+
+# <o>
+
+# <prune>
+    pr = prune
+
+# <pull>
+    p = pull
+
+# <push>
+    u = push
+    ua = push --all
+    ud = push -d
+    ut = push --tags
+    uu = push -u
+
+# <q>
+
+# <rebase>
+    rb = rebase
+    rbi = rebase -i
+    rbco = rebase --continue
+    rbab = rebase --abort
+    rbqu = rebase --quit
+    rbsk = rebase --skip
+    rbe = rebase --edit-todo
+    rbon = rebase --onto
+    rbsp = rebase --show-current-patch
+
+# <remote>
+    mt = remote
+    mtv = remote -v
+    mta = remote add
+    mtr = remote rename
+    mtrm = remote remove
+    mts = remote show
+    mtp = remote prune
+    mtgt = remote get-url
+    mtst = remote set-url
+
+# <restore>
+    st = restore
+    sts = restore -s
+    stp = restore -p
+    stS = restore -S
+
+# <range-diff>
+    rd = range-diff
+
+# <reset>
+    re = reset
+    rep = reset -p
+    res = reset --soft
+    reh = reset --hard
+    rek = reset --keep
+    rem = reset --merge
+
+# <rm>
+    rm = rm
+    rM = rm -f
+    rmc = rm --cached
+    rmr = rm -r
+    rmR = rm -rf
+
+# <revert>
+    rv = revert
+    rvc = revert --continue
+    rvk = revert --skip
+    rvq = revert --quit
+    rva = revert --abort
+    rvn = revert -n3acf393
+
+# <show>
+    so = show $GIT_SHOW_FORMAT
+
+# <shortlog>
+    sl = shortlog
+    slm = shortlog --merges
+    slM = shortlog --no-merges
+
+# <status>
+    s = status --show-stash
+    ss = status --show-stash -s
+    su = status --show-stash -u
+
+# <stash>
+    h = stash
+    hu = stash -a
+    hp = stash -p
+    hl = stash list -p --pretty = format:'%C(brightyellow)%gd %Cblue%notes %Cgreen%cr%n  %C(cyan)%gs%n'
+    hw = stash show -p
+    ho = stash pop
+    hy = stash apply
+    hb = stash branch
+    hr = stash clear
+    hd = stash drop
+
+# <switch>
+    w = switch
+    wc = switch -c
+    wd = switch --detach
+    wdi = switch --discard-changes
+    wt = switch -ct
+
+# <tag>
+    #t = tag $GIT_TAG_FORMAT
+    ta = tag -a $GIT_TAG_FORMAT
+    tam = tag -am $GIT_TAG_FORMAT
+    td = tag -d $GIT_TAG_FORMAT
+    tc = tag --contains $GIT_TAG_FORMAT
+    tC = tag --no-contains $GIT_TAG_FORMAT
+    tm = tag --merged $GIT_TAG_FORMAT
+    tM = tag --no-merged $GIT_TAG_FORMAT
+    tp = tag --points-at $GIT_TAG_FORMAT

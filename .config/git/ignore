@@ -1,0 +1,14 @@
+# exclude
+/*
+
+*.pyc
+/.config/*/history
+/.config/*/.zcompdump
+/.local/*/
+/.local/*/*/
+# include
+!/.config/
+!/.local/
+!/.local/share/
+!/.local/share/nvim/
+
