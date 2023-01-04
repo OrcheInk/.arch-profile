@@ -263,7 +263,7 @@ def umount(mount_path):
     execute(cmd)
     os.rmdir(mount_path)
 
-class sshfs_umount(Command):
+class sshfs_mountu(Command):
     def execute(self):
         tab = self.fm.tabs[self.fm.current_tab]
         mount_path = tab.thisfile.path
