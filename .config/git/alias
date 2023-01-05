@@ -16,9 +16,6 @@
     ay = apply
 
 # <branch>
-   # b = branch $GIT_BRANCH_FORMAT
-    ba = branch -avv
-    br = branch -rvv
     bc = branch -c
     bC = branch -C
     bd = branch -d
@@ -28,11 +25,6 @@
     bM = branch -M
     be = branch --edit-description
     bU = branch --unset-upstream
-    bp = branch --points-at
-    bco = branch --contains
-    bCO = branch --no-contains
-    bme = branch --merged
-    bME = branch --no-merged
 
 # <clone>
     cl = clone
@@ -106,8 +98,6 @@
 # <j>
 # <k>
 # <log>
-    l = log "$GIT_LOG_FORMAT"
-    al = log --all $GIT_LOG_FORMAT
     o = log --oneline --graph
     ao = log --oneline --graph --all
 
@@ -212,7 +202,6 @@
     rvn = revert -n3acf393
 
 # <show>
-    so = show $GIT_SHOW_FORMAT
 
 # <shortlog>
     sl = shortlog
@@ -228,7 +217,6 @@
     h = stash
     hu = stash -a
     hp = stash -p
-    hl = stash list -p --pretty = format:'%C(brightyellow)%gd %Cblue%notes %Cgreen%cr%n  %C(cyan)%gs%n'
     hw = stash show -p
     ho = stash pop
     hy = stash apply
@@ -244,12 +232,4 @@
     wt = switch -ct
 
 # <tag>
-    #t = tag $GIT_TAG_FORMAT
-    ta = tag -a $GIT_TAG_FORMAT
-    tam = tag -am $GIT_TAG_FORMAT
-    td = tag -d $GIT_TAG_FORMAT
-    tc = tag --contains $GIT_TAG_FORMAT
-    tC = tag --no-contains $GIT_TAG_FORMAT
-    tm = tag --merged $GIT_TAG_FORMAT
-    tM = tag --no-merged $GIT_TAG_FORMAT
-    tp = tag --points-at $GIT_TAG_FORMAT
+    td = tag -d

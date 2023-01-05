@@ -1,5 +1,6 @@
-[user]
-	name = orcheink
-	email = 861640471@qq.com
 [include]
 	path = alias
+[includeIf "gitdir:~/CodeWork/Individual/"]
+	path = individual
+[includeIf "gitdir:~/CodeWork/Company/"]
+	path = company
