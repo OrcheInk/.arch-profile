@@ -10,7 +10,6 @@ pacman --noconfirm -S openssh git neovim zsh fzf fd ripgrep bat highlight ranger
 pip install 'trash-cli[completion]'
 
 rm /usr/share/zsh/site-functions/_trash*
-cp .config/trash-cli/* /usr/share/zsh/site-functions
 
 systemctl enable sshd.service
 systemctl start sshd.service
