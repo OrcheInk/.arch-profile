@@ -6,7 +6,9 @@
 /.config/*/.zcompdump
 /.local/*/
 /.local/*/*/
+
 # include
+!/.github/
 !/.config/
 !/.config/trash-cli/
 !/.local/
