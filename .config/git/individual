@@ -1,2 +1,9 @@
+[core]
+        autocrlf = input
+        whitespace = -blank-at-eof,-blank-at-eol	
 [pull]
 	rebase = true
+[safe]
+        directory = /mnt/hgfs/code/IdeaProjects/git-study
+[commit]
+	gpgsign = true

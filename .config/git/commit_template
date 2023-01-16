@@ -1,0 +1,22 @@
+
+
+# header(mandatory)
+#     <type>(<scope>): <short summary>
+#     type: build, ci, docs, feat, fix, perf, refactor, test.
+#
+# body(mandatory)
+#     This commit message should explain _why_ you are making the change,
+#     it must be at least 20 characters long.
+#
+# footer(optional)
+#     BREAKING CHANGE: <breaking change summary>
+#     
+#     <breaking change description + migration instructions>
+#     
+#     
+#     Fixes #<issue number>
+#
+# revert: the header of the reverted commit.
+# 
+# This reverts commit <SHA>
+# description of the reason for reverting the commit message.

@@ -3,39 +3,118 @@
 # <add>
     a = add
     aa = add -A
-    aA = add --no-all
+    ana = add --no-all
     ae = add -e
     ai = add -i
     an = add -N
     ap = add -p
     au = add -u
     ax = add --chmod = +x
-    aX = add --chmod = -x
+    anx = add --chmod = -x
+
+# <am>
+    ams = am -s
+    amke = am -k
+    amkn = am --keep-non-patch
+    amsc = am -c
+    ami = am -i
+    amc = am --continue
+    amk = am --keep
+    ama = am --abort
+    amq = am --quit
 
 # <apply>
     ay = apply
+    ayk = apply --check
+    ayi = apply --index
+    ayc = apply --cached
+    ayna = apply --no-add
+    ayn = apply --intent-to-add
+    ayr = apply -R
+    ayj = apply --reject
+    ayy = apply --apply
+
+# <archive>
+    ar = archive
+    aro = archive -o
+    arr = archive --remote
+
+# <bisect>
+    bs = bisect
+    bss = bisect start
+    bsre = bisect reset
+    bsb = bisect bad
+    bsg = bisect good
+    bso = bisect old
+    bsn = bisect new
+    bst = bisect terms
+    bsv = bisect view
+    bsk = bisect skip
+    bsl = bisect log
+    bsrp = bisect replay
+    bsrun = bisect run
+
+# <blame>
+  # bl = blame
 
 # <branch>
+  # b = branch
+  # ba = branch -avv
+  # bal = branch -avv -l
+  # br = branch -rvv
     bc = branch -c
-    bC = branch -C
+    bcf = branch -C
     bd = branch -d
-    bD = branch -D
-    bu = branch -u
+    bdf = branch -D
     bm = branch -m
-    bM = branch -M
+    bmf = branch -M
+    bu = branch -u
+    bt = branch -t -f
+    bnu = branch --unset-upstream
     be = branch --edit-description
-    bU = branch --unset-upstream
+  # bpa = branch --points-at
+  # bcn = branch --contains
+  # bncn = branch --no-contains
+  # bme = branch --merged
+  # bnmr = branch --no-merged
+
+# <bundle>
+    bun = bundle
+    bunc = bundle create
+    bunv = bundle verify
+    bunl = bundle list-heads
+    bunn = bundle unbundle
 
 # <clone>
     cl = clone
-    clb = clone --bare
-    clo = clone -o
+    clb = clone -b
+    clbr = clone --bare
     cld = clone --depth
+    clo = clone -o
+    clsb = clone --recurse-submodules
+    clob = clone --single-branch
+
+# <clean>
+    le = clean
+    len = clean -n
+    lei = clean -i
+    led = clean -d
+    ledn = clean -d -n
+    lee = clean -e
 
 # <commit>
     c = commit
-    ca = commit -am
-    cam = commit --amend
+    cm = commit -m
+    cms = commit -S -m
+    cam = commit -am
+    cams = commit -a -S -m
+    ce = commit --amend
+    cen = commit --ammend --no-edit
+    cre = commit -c
+    cru = commit -C
+    cf = commit --fixup
+    cs = commit --squash
+    ct = commit --trailer
     ci = commit --interactive
 
 # <checkout>
@@ -43,6 +122,9 @@
     cob = checkout -b
     cot = checkout -t
     cop = checkout -p
+    coc = checkout --conflict=merge
+    co2 = checkout -2
+    co3 = checkout -3
 
 # <cherry-pick>
     cp = cherry-pick
@@ -53,69 +135,110 @@
     cpq = cherry-pick --quit
 
 # <config>
-    con = config
-    cona = config --get-all
-    conx = config --get-regexp
-    conu = config --unset
-    conua = config --unset-all
-    conra = config --replace-all
-    conrn = config --rename-section
-    conrm = config --remove-section
-    conse = config --edit --system
-    conge = config --edit --global 
-    conle = config --edit --local
-    cond = config -l
-    cons = config -l --system
-    cong = config -l --global
-    conl = config -l --local
-    conso = config -l --show-origin
-    conss = config -l --show-scope
+    cg = config
+    cgf = config -f
+    cgs = config --system
+    cgg = config --global
+    cgw = config --worktree
+    cgsb = config -f .gitmodules
+    cga = config --get-all
+    cgx = config --get-regexp
+    cgu = config --unset
+    cgua = config --unset-all
+    cgra = config --replace-all
+    cgrn = config --rename-section
+    cgrm = config --remove-section
+    cgse = config --edit --system
+    cgge = config --edit --global 
+    cgle = config --edit --local
+    cgwe = config --edit --worktree
+    cgv = config -l
+    cgsbl = config -l -f .gitmodules
+    cgsl = config -l --system
+    cggl = config -l --global
+    cgll = config -l --local
+    cgwl = config -l --worktree
+    cgso = config -l --show-origin
+    cgss = config -l --show-scope
 
 # <describe>
-    d = describe
-    dt = describe --tags
+    de = describe
+    det = describe --tags
 
 # <diff>
     df = diff
+    dfw = diff -w
+    dfc = diff --cached
+    dfcw = diff --cached -w
+    dfsb = diff --submodule
+    dfcsb = diff --cached --submodule
 
 # <difftool>
-    dit = difftool
-    dith = difftool --tool-help
-    ditt = difftool -t
+    dt = difftool
+    dth = difftool --tool-help
+    dtt = difftool -t
 
-# <e>
 # <fetch>
     f = fetch
+    fa = fetch -a
+    fpr = fetch --prune
+    fapr = fetch -a --prune
+    fprt = fetch --prune-tags
+    faprt = fetch -a --prune-tags
 
-# <g>
-# <h>
+# <fsck>
+    fk = fsck
+    fku = fsck --unreachable
+    fkd = fsck --dangling
+    fkt = fsck --tags
+    fkr = fsck --root
+    fkc = fsck --cache
+    fkref = fsck --reflogs
+    fkf = fsck --full
+    fkco = fsck --connectivity-only
+    fks = fsck --strict
+    fklf = fsck --lost-found
+    fkn = fsck --name-objects
+
+# <grep>
+    g = grep --heading --break --all-match -n
+    gl = grep -c
+
 # <init>
     i = init
     ib = init -b
-    ie = init --bare
-    is = init --shared
+    ibr = init --bare
+    isr = init --shared
 
-# <j>
-# <k>
 # <log>
-    o = log --oneline --graph
-    ao = log --oneline --graph --all
+   l = log
+  # al = log --all
+  # lp = log -p
+    lm = log --oneline --left-right --merge
+    lss = log --show-signature
+    lass = log --all --show-signature
 
 # <merge>
     m = merge
+    ms = merge --squash
     mc = merge --continue
     ma = merge --abort
     mq = merge --quit
     mm = merge -m
 
+# <merge-base>
+    mb = merge-base
+    mbf = merge-base -a --fork-point
+    mboct = merge-base -a --octopus
+    
 # <mergetool>
-    met = mergetool
-    mett = mergetool -t
-    meth = mergetool --tool-help
+    mt = mergetool
+    mth = mergetool --tool-help
+    mtt = mergetool -t
 
 # <mv>
     mv = mv
-    MV = mv -f
+    mvf = mv -f
 
 # <notes>
     n = notes
@@ -127,16 +250,18 @@
     ns = notes show
     nr = notes remove
     nm = notes merge
-    np = notes prune
+    npr = notes prune
     ng = notes get-ref
-
-# <o>
 
 # <prune>
     pr = prune
+    prn = prune -n
 
 # <pull>
     p = pull
+    pu = pull -u
+    pah = pull --autostash
+    psb = pull --recurse-submodules
 
 # <push>
     u = push
@@ -144,39 +269,67 @@
     ud = push -d
     ut = push --tags
     uu = push -u
-
-# <q>
+    uf = push --force-with-lease
 
 # <rebase>
     rb = rebase
     rbi = rebase -i
-    rbco = rebase --continue
-    rbab = rebase --abort
-    rbqu = rebase --quit
-    rbsk = rebase --skip
+    rbr = rebase -i --root
+    rbb = rebase -i --keep-base
+    rbf = rebase -i --fork-point
+    rbrc = rebase -i -rrebase-cousins
+    rbnc = rebase -rno-rebase-cousins
+    rbay = rebase -i --apply
+    rbc = rebase --continue
+    rbk = rebase --skip
+    rba = rebase --abort
+    rbq = rebase --quit
     rbe = rebase --edit-todo
     rbon = rebase --onto
+    rbas = rebase --autosquash
+    rbah = rebase --autostash
     rbsp = rebase --show-current-patch
 
 # <remote>
-    mt = remote
-    mtv = remote -v
-    mta = remote add
-    mtr = remote rename
-    mtrm = remote remove
-    mts = remote show
-    mtp = remote prune
-    mtgt = remote get-url
-    mtst = remote set-url
+    mo = -p remote
+    mov = -p remote -v
+    moa = remote add
+    morn = remote rename
+    morm = remote remove
+    moso = -p remote show
+    mopr = remote prune
+    moprn = remote prune --dry-run
+    moh = remote set-head
+    moha = remote set-head -a
+    mohd = remote set-head -d
+    mob = remote set-branches
+    moba = remote set-branches --add
+    mogu = remote get-url
+    mosu = remote set-url
 
 # <restore>
-    st = restore
-    sts = restore -s
-    stp = restore -p
-    stS = restore -S
+    rt = restore
+    rts = restore -s
+    rtp = restore -p
+    rtc = restore -S
 
 # <range-diff>
     rd = range-diff
+
+# <reflog>
+  # ref = reflog
+    refd = reflog delete
+    refe = reflog expire
+    refen = reflog expire --dry-run
+
+# <rerere>
+    rr = rerere
+    rrs = rerere status
+    rrdf = rerere diff
+    rrc = rerere clear
+    rrf = rerere forget
+    rrr = rerere remaining
+    rrgc = rerere gc
 
 # <reset>
     re = reset
@@ -188,48 +341,175 @@
 
 # <rm>
     rm = rm
-    rM = rm -f
+    rmf = rm -f
     rmc = rm --cached
     rmr = rm -r
-    rmR = rm -rf
+    rmrf = rm -rf
 
 # <revert>
     rv = revert
     rvc = revert --continue
     rvk = revert --skip
-    rvq = revert --quit
     rva = revert --abort
-    rvn = revert -n3acf393
+    rvq = revert --quit
+    rvn = revert -n
+
+# <request-pull>
+    rp = request-pull
 
 # <show>
+  # so = show
 
 # <shortlog>
     sl = shortlog
     slm = shortlog --merges
-    slM = shortlog --no-merges
+    slnm = shortlog --no-merges
+
+# <sparse-checkout>
+    spl = sparse-checkout list
+    sps = sparse-checkout set 
+    spa = sparse-checkout add
+    spr = sparse-checkout reapply
+    spd = sparse-checkout disable
 
 # <status>
-    s = status --show-stash
-    ss = status --show-stash -s
-    su = status --show-stash -u
+    s = status
+    ss = status -s
+    su = status -u
 
 # <stash>
     h = stash
-    hu = stash -a
+    ha = stash -a
     hp = stash -p
-    hw = stash show -p
-    ho = stash pop
-    hy = stash apply
+  # hl = stash list -p 
+    hso = stash show -p
+    hpp = stash pop
+    hay = stash apply
     hb = stash branch
-    hr = stash clear
+    hc = stash clear
     hd = stash drop
 
 # <switch>
     w = switch
+    wl = switch -
+    wf = switch -f
     wc = switch -c
-    wd = switch --detach
-    wdi = switch --discard-changes
-    wt = switch -ct
+    wu = switch -t
+    wda = switch --detach
+    wdc = switch --discard-changes
+
+# <submodule>
+    sb = submodule
+    sbs = submodule status
+    sba = submodule add
+    sbsc = submodule sync
+    sbf = submodule foreach
+    sbd = submodule deinit
+    sbumr = submodule update --remote --merge
+    sburb = submodule update --remote --rebase
+    sbui = submodule update --init --recursive
 
 # <tag>
+  # t = tag
+  # ta = tag -a
+  # tam = tag -am
     td = tag -d
+  # tpa = tag --points-at
+  # tcn = tag --contains
+  # tncn = tag --no-contains
+  # tmr = tag --merged
+  # tnmr = tag --no-merged
+
+# <update-ref>
+    udr = update-ref -d HEAD
+
+# <worktree>
+    wt = worktree
+    wta = worktree add
+    wtl = worktree list
+    wtlk = worktree lock
+    wtuk = worktree unlock
+    wtm = worktree move
+    wtpr = worktree prune
+    wtrm = worktree remove
+    wtrp = worktree repair
+
+# <cat-file>
+    cfi = -p cat-file
+    cfp = -p cat-file -p
+    cft = -p cat-file -t
+
+# <check-ignore>
+    cki = check-ignore -vn
+
+# <checkout-index>
+    coia = checkout-index -au
+
+# <commit-tree>
+    cmt = commit-tree -m
+
+# <count-objects>
+    cub = count-objects -vH
+
+# <diff-index>
+    dfi = diff-index	
+
+# <for-each-ref>
+  # fer = for-each-ref
+  # ferp = for-each-ref --points-at
+  # fercn = for-each-ref --contains
+  # ferncn = for-each-ref --no-contains
+  # fermr = for-each-ref --merged
+  # fercmr = for-each-ref --no-merged
+
+# <hash-object>
+    hs = hash-object
+    hst = hash-object -t
+    hstw = hash-object -wt
+
+# <ls-files>
+    lf = -p ls-files --stage -v --abbrev=7
+    lfo = ls-files --stage -v --abbrev=7 -o
+  # lfd = ls-files --debug
+
+# <ls-tree>
+  # lt = ls-tree
+  # ltr = ls-tree -r
+
+# <read-tree>
+    rdt = read-tree
+
+# <rev-list>
+    rel = rev-list
+
+# <rev-parse>
+    rvp = rev parse
+
+# <show-ref>
+    sor = show-ref
+
+# <symbolic-ref>
+    symr = symbolic-ref
+    symrd = symbolic-ref -d
+
+# <update-index>
+    upi = update-index
+    upia = update-index --add
+    upir = update-index --remove
+    upirf = update-index --force-remove
+    upirp = update-index --replace
+    upirs = update-index --refresh
+    upix = update-index --chmod
+    upikw = update-index --skip-worktree
+    upinkw = update-index --no-skip-worktree
+    upikas = update-index --assume-unchanged
+    upinas = update-index --no-assume-unchanged
+
+# <update-ref>
+    upr = update-ref
+
+# <verify-pack>
+    vrp = verify-pack -s
+
+# <write-tree>
+    wrt = write-tree

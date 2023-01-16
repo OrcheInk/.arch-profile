@@ -1,0 +1,28 @@
+[color "diff"]
+        meta = black
+        frag = blue
+        new = brightgreen
+        func = red
+        commit = green
+[color "decorate"]
+        tag = bold 124
+        remoteBranch = bold 214
+        stash = bold brightyellow
+        HEAD = bold brightyellow
+        grafted = bold blue
+        branch = bold 193 
+[color "grep"]
+        filename = blue
+        linenumber = red
+        match = brightyellow
+        context = black
+[color "status"]
+        header = blue
+        untracked = black
+        branch = brightyellow
+        nobranch = cyan
+[color "advice"]
+        hint = cyan
+[color "blame"]
+        repeatedlines = black
+        highlightRecent = brightyellow

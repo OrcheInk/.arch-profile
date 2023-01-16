@@ -1,6 +1,77 @@
 [include]
 	path = alias
-[includeIf "gitdir:~/CodeWork/Individual/"]
+	path = color
+[includeIf "gitdir:~/.arch-profile"]
 	path = individual
-[includeIf "gitdir:~/CodeWork/Company/"]
+[includeIf "gitdir:~/Code/Individual/"]
+	path = individual
+[includeIf "gitdir:~/Code/Company/"]
 	path = company
+[init]
+	defaultBranch = main
+[core]
+#	autocrlf = input
+	abbrev = 7
+	editor = nvim
+	pager = most
+#	whitespace = -blank-at-eof,-blank-at-eol
+[submodule]
+	recurse = true
+[push]
+	default = upstream
+	recurseSubmodules = check
+	gpgSign = false
+	followTags = false
+[fetch]
+	prune = true
+	pruneTags = true
+	writeCommitGraph = true
+[pull]
+#	rebase = true
+[merge]
+	tool = nvimdiff
+	autoStash = true
+[rebase]
+	autosquash = true
+	autoStash = true
+	abbreviateCommands = true
+	forkPoint = true
+[status]
+	submodulesummary = true
+	showStash = true
+	branch = true
+[log]
+	abbrevCommit = true
+	date = format:%y/%m/%d %H:%M
+[diff]
+	submodule = log
+	tool = nvimdiff
+	mnemonicPrefix = true
+[commit]
+#	gpgsign = true
+	template = /home/loop/.config/git/commit_template
+[checkout]
+	defaultRemote = origin
+[stash]
+	showIncludeUntracked = true
+	showPatch = true
+	showStat = true
+[tag]
+	gpgSign = true
+[rerere]
+	enabled = true
+	autoupdate = false
+[blame]
+	blankboundary = false
+	date = format:%y/%m/%d %H:%M
+[grep]
+	lineNumber = true
+	patternType = extended
+[mergetool]
+	keepBackup = false
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
