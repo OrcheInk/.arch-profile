@@ -1,0 +1,16 @@
+{
+  "pagesRepository": "https://github.com/tldr-pages/tldr",
+  "repository": "https://tldr.sh/assets/tldr.zip",
+  "skipUpdateWhenPageNotFound": false,
+  "platform": "linux",
+  "themes": {
+    "mytheme": {
+      "commandName": "bold, yellow",
+      "mainDescription": "magentaBright",
+      "exampleDescription": "green",
+      "exampleCode": "cyanBright",
+      "exampleToken": "gray"
+    }
+  },
+  "theme": "mytheme"
+}
