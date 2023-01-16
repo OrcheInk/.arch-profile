@@ -1,0 +1,103 @@
+# What protocol to use when performing git operations. Supported values: ssh, https
+git_protocol: https
+# What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
+editor: nvim
+# When to interactively prompt. This is a global config that cannot be overridden by hostname. Supported values: enabled, disabled
+prompt: enabled
+# A pager program to send command output to, e.g. "less". Set the value to "cat" to disable the pager.
+pager: less
+# Aliases allow you to create nicknames for gh commands
+aliases:
+    aui: auth login
+    auo: auth logout
+    aus: auth status
+    aut: auth token
+
+    ser: search repos
+    sei: search issues
+    sep: search prs
+    
+    s: status
+
+    b: browse
+
+    rpc: repo create
+    rpd: repo delete
+    rpcl: repo clone
+    rpl: repo list
+    rpv: repo view
+    rpe: repo edit
+    rprn: repo rename
+    
+    prc: pr create
+    prv: pr view
+    prrv: pr review
+    prrd: pr ready
+    prco: pr checkout
+    prd: pr diff
+    pre: pr edit
+    prcm: pr comment
+    prm: pr merge
+
+    rlc: release create
+    rld: release delete
+    rll: release list
+    rlv: release view
+    rle: release edit
+    rlu: release upload
+    rldo: release download
+
+    isc: issue create
+    isd: issue delete
+    isl: issue list
+    isv: issue view
+    iss: issue status
+    iscm: issue comment
+    isde: issue develop
+    ist: issue transfer
+    ise: issue edit
+    iscs: issue close
+    isro: issue reopen
+    isk: issue lock
+    isuk: issue unlock
+    isp: issue pin
+    isup: issue unpin
+
+    lacl: label clone
+    lal: label list
+    lac: label create
+    lad: label delete
+    lae: label edit
+
+    sshl: ssh-key list
+    ssha: ssh-key add
+    sshd: ssh-key delete
+
+    gpgl: gpg-key list
+    gpga: gpg-key add
+    gpgd: gpg-key delete
+
+    scl: secret list
+    scs: secret set
+    scd: secret delete
+
+    gscl: gist clone
+    gsc: gist create
+    gsd: gist delete
+    gsl: gist list
+    gsv: gist view
+    gse: gist edit
+
+    exb: extension browse
+    exs: extension search
+    exl: extension list
+    exe: extension exec
+    exi: extension install
+    exr: extension remove
+    exu: extension upgrade
+    exc: extension create
+
+# The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
+http_unix_socket:
+# What web browser gh should use when opening URLs. If blank, will refer to environment.
+browser:
