@@ -1,12 +1,10 @@
-# [a]
+# [A]
 
 # @ arch-profile
 alias arch="git --git-dir=$HOME/.arch-profile --work-tree=$HOME"
 
-# [b]
-
-
-# [c]
+# [B]
+# [C]
 
 # @ common
 alias p="cd ../"
@@ -19,44 +17,49 @@ alias ll="ls -l"
 alias la="ls -la"
 alias lsa="ls -a .*"
 
-# [d]
-
-
-# [e]
-
-
-# [f]
-
-
-# [g]
+# [D]
+# [E]
+# [F]
+# [G]
 
 # @ git
 alias g="git"
 
+# @ gpg
+alias gpgg="gpg --full-generate-key"
+alias gpgl="gpg --list-keys"
+alias gpge="gpg --armor --export"
+alias gpgi="gpg --import"
+alias gpgh="curl https://github.com/web-flow.gpg | gpg --import"
+alias gpgs="gpg --sign-key"
+
+# [H]
+# [I]
+# [J]
+# [K]
+# [L]
+# [M]
+
+# [N]
+
 # @ nvim
 alias vim="nvim"
 
-# [o]
-
-
-# [p]
-
-
-# [q]
-
-
-# [r]
+# [O]
+# [P]
+# [Q]
+# [R]
 
 # @ ranger
 alias rr='ranger'
 alias rrc='vim $HOME/.config/ranger/commands.py'
 
-# [s]
+# [S]
 
 # @ scripts
 alias fq='$ZDOTDIR/scripts/fquery'
 
-# [t]
+# [T]
 
 # @ trash-cli
 alias ts='trash'
@@ -65,22 +68,13 @@ alias tse='trash-empty'
 alias tsr='trash-restore'
 alias tsm='trash-rm'
 
-# [u]
+# [U]
+# [V]
+# [W]
+# [X]
+# [Y]
 
-
-# [v]
-
-
-# [w]
-
-
-# [x]
-
-
-# [y]
-
-
-# [z]
+# [Z]
 
 # @ zsh
 alias zrc='vim $ZDOTDIR/.zshrc'

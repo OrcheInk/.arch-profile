@@ -11,6 +11,22 @@ function refunc() {
         done
 }
 
+# git_grep: grep info with git command
+function git_grep(){
+	if [ "$3" = arch ]
+	then
+		git --git-dir=/home/loop/.arch-profile --work-tree=/home/loop $1 | grep $2 | most
+	else
+		git $1 | grep $2 | most
+	fi
+}
+
+# tag_verify: verify GPG tag
+function tag_verify() {
+	echo ''
+	git tag -v $1 | grep gpg
+}
+
 # rename_tag: rename tag in git
 function rename_tag() {
 	SOURCE_TAG=$1 NEW_TAG=$2; \
@@ -30,6 +46,42 @@ function change_tag_message() {
 	GIT_COMMITTER_EMAIL="$(deref taggeremail)" \
 	GIT_COMMITTER_DATE="$(deref taggerdate)" \
 	git tag "$SOURCE_TAG" "$(deref "*objectname")" -a -m "$NEW_MESSAGE" -f
+}
+
+# branch_log: show current branch log from fork-point
+function branch_log() {
+	if [ ! -n "$2" ] 
+	then
+		git l "$(git merge-base $1 HEAD)..HEAD"
+	else
+		git l "$(git merge-base $1 $2)..$2"
+	fi
+}
+
+# merge_base: git merge-base
+function merge_base() {
+	git merge-base $1 $2 $3 | xargs git sos
+}
+
+# rebase_branch: rebsae current branch form merge-base
+function rebase_branch() {
+	git rbi $(git merge-base $1 HEAD)
+}
+
+# ancestor: check ancestor in git
+function ancestor() {
+	if git merge-base --is-ancestor $1 $2 
+	then
+		echo "... $1 is an ancestor of $2 ..."
+	else
+		echo "... false ..."
+	fi
+}
+
+# branch_gone: delete branch has gone
+function branch_gone() {
+	git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads/ |\
+    	sed -n '/ *\[gone\].*$/{s@@@;p}' | xargs git branch -D
 }
 
 # paci: fuzzy-search all available packages, with package info, and then install selected packages
