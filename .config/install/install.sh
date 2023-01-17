@@ -8,6 +8,7 @@ rm -rf .local
 rm $loop/.bash*
 
 # pacman install
+pacman -Sy
 pacman --noconfirm -S openssh git neovim zsh fzf fd ripgrep bat highlight ranger sshfs unzip unrar p7zip trash-cli python-pip tree most lua man-db nodejs npm github-cli
 
 # trash-cli completion
@@ -36,11 +37,20 @@ function arch {
 arch checkout -f
 arch fetch
 
+rm $loop/.arch-profile/info/exclude
+ln -s $loop/.config/arch-profile/exclude .arch-profile/info/
+rm $loop/.arch-profile/config
+ln -s $loop/.config/arch-profile/config .arch-profile/
+
 # carete symbol link
 ln -s $loop/.config/zsh/zshenv /etc/zsh
+
 ln -s $loop/.config/npm/npmrc /etc
+npm install -g tldr
+
 rm /usr/lib/node_modules/tldr/config.json
 ln -s $loop/.config/tldr/config.json /usr/lib/node_modules/tldr
+
 ln -s $loop/.config
 ln -s $loop/.local
 
