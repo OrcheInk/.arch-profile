@@ -4,13 +4,13 @@
   "skipUpdateWhenPageNotFound": false,
   "platform": "linux",
   "themes": {
-    "mytheme": {
-      "commandName": "bold, yellow",
-      "mainDescription": "magentaBright",
+    "loop": {
+      "commandName": "bold, yellowBright",
+      "mainDescription": "redBright",
       "exampleDescription": "green",
       "exampleCode": "cyanBright",
       "exampleToken": "gray"
     }
   },
-  "theme": "mytheme"
+  "theme": "loop"
 }
