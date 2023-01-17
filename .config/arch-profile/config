@@ -3,8 +3,6 @@
 	filemode = true
 	bare = true
 	sshCommand = ssh -i /home/loop/.ssh/id_rsa
-[status]
-	showUntrackedFiles = no
 [remote "origin"]
         url = git@github.com:OrcheInk/.arch-profile.git
         fetch = +refs/heads/*:refs/remotes/origin/*
