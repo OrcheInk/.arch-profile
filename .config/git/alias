@@ -109,7 +109,7 @@
     cam = commit -am
     cams = commit -a -S -m
     ce = commit --amend
-    cen = commit --ammend --no-edit
+    cen = commit --amend --no-edit
     cre = commit -c
     cru = commit -C
     cf = commit --fixup
