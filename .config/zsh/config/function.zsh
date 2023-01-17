@@ -1,8 +1,5 @@
-function funlist() { grep "^#" $ZDOTDIR/config/function.zsh | awk 'gsub("#","");' }
+function funlist() { grep "^#" $ZDOTDIR/config/function.zsh | awk 'gsub("#","");' | most }
 
-#
-
-# refunc: reload functions
 function refunc() {
         for func in $argv
         do
@@ -11,7 +8,9 @@ function refunc() {
         done
 }
 
-# git_grep: grep info with git command
+# git_grep(git): grep info
+# 	usage: @ <git_command> <grep_info> [arch]
+#
 function git_grep(){
 	if [ "$3" = arch ]
 	then
@@ -21,13 +20,17 @@ function git_grep(){
 	fi
 }
 
-# tag_verify: verify GPG tag
+# tag_verify(git): verify GPG tag
+# 	usage: @ <tag>
+#
 function tag_verify() {
 	echo ''
 	git tag -v $1 | grep gpg
 }
 
-# rename_tag: rename tag in git
+# rename_tag(git): rename tag
+# 	usage: @ <tag> <new_name>
+#
 function rename_tag() {
 	SOURCE_TAG=$1 NEW_TAG=$2; \
 	deref() { git for-each-ref "refs/tags/$SOURCE_TAG" --format="%($1)" }; \
@@ -38,7 +41,9 @@ function rename_tag() {
 	git tag -d $SOURCE_TAG
 }
 
-# change_tag_message: change tag message in git
+# change_tag_message(git): modify tag message
+# 	usage: @ <tag> <new_message>
+#
 function change_tag_message() {
 	SOURCE_TAG=$1 NEW_MESSAGE=$2; \
 	deref() { git for-each-ref "refs/tags/$SOURCE_TAG" --format="%($1)" }; \
@@ -48,7 +53,9 @@ function change_tag_message() {
 	git tag "$SOURCE_TAG" "$(deref "*objectname")" -a -m "$NEW_MESSAGE" -f
 }
 
-# branch_log: show current branch log from fork-point
+# branch_log(git): show target branch log from fork-point
+# 	usage: @ <parent_branch> [branch]
+#
 function branch_log() {
 	if [ ! -n "$2" ] 
 	then
@@ -58,17 +65,23 @@ function branch_log() {
 	fi
 }
 
-# merge_base: git merge-base
+# merge_base(git): find merge-base of two branch
+# 	usage: @ [--fork-point] <branch> <branch>
+#
 function merge_base() {
 	git merge-base $1 $2 $3 | xargs git sos
 }
 
-# rebase_branch: rebsae current branch form merge-base
+# rebase_branch(git): rebsae current branch form merge-base
+# 	usage: @ <parent_branch>
+#
 function rebase_branch() {
 	git rbi $(git merge-base $1 HEAD)
 }
 
-# ancestor: check ancestor in git
+# ancestor(git): check ancestor
+# 	usage: @ <branch> <branch>
+#
 function ancestor() {
 	if git merge-base --is-ancestor $1 $2 
 	then
@@ -78,25 +91,41 @@ function ancestor() {
 	fi
 }
 
-# branch_gone: delete branch has gone
+# branch_gone(git): delete branch has gone
+#
 function branch_gone() {
 	git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads/ |\
     	sed -n '/ *\[gone\].*$/{s@@@;p}' | xargs git branch -D
 }
 
-# paci: fuzzy-search all available packages, with package info, and then install selected packages
+# commit_filter(git): remove file from history commit
+# 	usage: @ [arch/git] <file>
+#
+function commit_filter(){
+	$1 filter-branch --force --index-filter "$1 rm --cached --ignore-unmatch $2"
+}
+
+# paci(pacman): fuzzy-search all available packages, interactive install selected packages
+#	usage: @
+#
 function paci() { pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S }
 
-# pacu: list all your installed packages, and then remove selected packages
+# pacu(pacman): list all your installed packages, interactive remove selected packages
+#	usage: @
+#
 function pacu() { pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns }
 
-# pacp: list package file path
+# pacp(pacman): list package file path
+#	usage: @
+#
 function pacp() { 
 	pacman -Slq | fzf --multi --layout=reverse --height=90% \
 	--preview 'cat <(pacman -Fl {1} | awk "{print \$2}")' 
 }
 
-# fkill: kill the process with the PID
+# fkill(*): kill the process with the PID
+#	usage: @ <pid>
+#
 function fkill() { 
 	(date; ps -ef) | fzf \
       	--bind='ctrl-r:reload(date; ps -ef)' \
@@ -105,10 +134,9 @@ function fkill() {
       	--layout=reverse --height=90% | awk '{print $2}' | xargs kill -9
 }
 
-# gitlize: gitlize current directory
-function gitize() { git init && git add . && git commit -a -m"initial commit" && git gc }
-
-# ssh-add: wrap ssh-add to default to adding all identities in ${HOME}/.ssh
+# ssh-add(ssh): wrap ssh-add to default to adding all identities in ${HOME}/.ssh
+#	usage: @
+#
 function ssh-add() {
 	local files
 	if [[ $# -eq 0 ]] ; then
@@ -123,7 +151,9 @@ function ssh-add() {
 	command ssh-add $files
 }
 
-# url-search: search for links in a directory and format the output
+# url-search(*): search for links in a directory and format the output
+#	usage: @
+#
 function url-search() {
         if [[ $# = 0 ]]
         then
@@ -136,10 +166,14 @@ function url-search() {
         fi
 }
 
-# vimhelp: quick read help-files of Vim
+# vimhelp(vim): quick read help-files of Vim
+#	usage: @
+#
 function vimhelp () { vim -c "help $1" -c on -c "au! VimEnter *" }
 
-# plist: list all programs with prefix
+# plist(*): list all programs with prefix
+# 	usage: @ <prefix>
+#
 function plist() {
         if [[ $# = 0 ]]
         then
@@ -151,7 +185,9 @@ function plist() {
 	fi
 }
 
-# mcd: mkdir && cd
+# mcd(*): mkdir && cd
+# 	usage: @ <directory>
+#
 function mcd() {
 	test -z "$1" && echo mkcd: no path given && return
 	test -d "$1" && print "mkcd: Directory $1 already exists"
