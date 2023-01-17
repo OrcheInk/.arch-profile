@@ -12,15 +12,11 @@ aliases:
     auo: auth logout
     aus: auth status
     aut: auth token
-
     ser: search repos
     sei: search issues
     sep: search prs
-    
     s: status
-
     b: browse
-
     rpc: repo create
     rpd: repo delete
     rpcl: repo clone
@@ -28,7 +24,6 @@ aliases:
     rpv: repo view
     rpe: repo edit
     rprn: repo rename
-    
     prc: pr create
     prv: pr view
     prrv: pr review
@@ -38,7 +33,6 @@ aliases:
     pre: pr edit
     prcm: pr comment
     prm: pr merge
-
     rlc: release create
     rld: release delete
     rll: release list
@@ -46,7 +40,6 @@ aliases:
     rle: release edit
     rlu: release upload
     rldo: release download
-
     isc: issue create
     isd: issue delete
     isl: issue list
@@ -62,32 +55,26 @@ aliases:
     isuk: issue unlock
     isp: issue pin
     isup: issue unpin
-
     lacl: label clone
     lal: label list
     lac: label create
     lad: label delete
     lae: label edit
-
     sshl: ssh-key list
     ssha: ssh-key add
     sshd: ssh-key delete
-
     gpgl: gpg-key list
     gpga: gpg-key add
     gpgd: gpg-key delete
-
     scl: secret list
     scs: secret set
     scd: secret delete
-
     gscl: gist clone
     gsc: gist create
     gsd: gist delete
     gsl: gist list
     gsv: gist view
     gse: gist edit
-
     exb: extension browse
     exs: extension search
     exl: extension list
@@ -96,7 +83,6 @@ aliases:
     exr: extension remove
     exu: extension upgrade
     exc: extension create
-
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
