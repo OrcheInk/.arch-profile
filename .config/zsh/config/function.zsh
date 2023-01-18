@@ -14,7 +14,7 @@ function refunc() {
 function git_grep(){
 	if [ "$3" = arch ]
 	then
-		git --git-dir=/home/loop/.arch-profile --work-tree=/home/loop $1 | grep $2 | most
+		arch $1 | grep $2 | most
 	else
 		git $1 | grep $2 | most
 	fi

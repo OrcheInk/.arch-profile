@@ -54,7 +54,7 @@ alias vim="nvim"
 
 # @ ranger
 alias rr='ranger'
-alias rrc='vim $HOME/.config/ranger/commands.py'
+alias rrc='nvim $HOME/.config/ranger/commands.py'
 
 # [S]
 
