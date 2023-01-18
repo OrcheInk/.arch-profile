@@ -2,12 +2,9 @@
 	repositoryformatversion = 0
 	filemode = true
 	bare = true
-	sshCommand = ssh -i ~/.ssh/id_rsa
 [remote "origin"]
         url = git@github.com:OrcheInk/.arch-profile.git
         fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "main"]
         remote = origin
         merge = refs/heads/main
-[pull]
-	rebase = true
