@@ -49,7 +49,7 @@
 	mnemonicPrefix = true
 [commit]
 #	gpgsign = true
-	template = /home/loop/.config/git/commit_template
+	template = ~/.config/git/commit_template
 [checkout]
 	defaultRemote = origin
 [stash]
