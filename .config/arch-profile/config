@@ -2,7 +2,7 @@
 	repositoryformatversion = 0
 	filemode = true
 	bare = true
-	sshCommand = ssh -i /home/loop/.ssh/id_rsa
+	sshCommand = ssh -i ~/.ssh/id_rsa
 [remote "origin"]
         url = git@github.com:OrcheInk/.arch-profile.git
         fetch = +refs/heads/*:refs/remotes/origin/*

@@ -17,8 +17,6 @@
 /.tldr/
 
 /.config/gh/hosts.yml
-/.config/z.lua/history
-/.config/zsh/history
 /.config/zsh/.zcompdump
 
 /.local/state/
@@ -26,4 +24,3 @@
 /.local/share/ranger/*
 
 # include
-!/.local/share/ranger/bookmarks
