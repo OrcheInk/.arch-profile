@@ -9,7 +9,6 @@ import curses
 import collections
 import subprocess
 
-
 # ALT-M fzf mark
 class fzf_mark(Command):
     """
