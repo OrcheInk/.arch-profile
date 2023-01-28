@@ -1,0 +1,12 @@
+.arch-profile,\
+.cache,\
+.cargo,\
+.config,\
+.npm,\
+.git,\
+.github,\
+.gnupg,\
+.local,\
+__pycache__,\
+.ssh,\
+.tldr
