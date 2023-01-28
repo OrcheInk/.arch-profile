@@ -15,12 +15,14 @@
 /.npm/
 /.ssh/
 /.tldr/
+/.cargo/
 
 /.config/gh/hosts.yml
 /.config/zsh/.zcompdump
+/.config/ranger/colorschemes/__init__.py
 
 /.local/state/
 /.local/share/Trash/
-/.local/share/ranger/*
+/.local/share/ranger/
 
 # include
