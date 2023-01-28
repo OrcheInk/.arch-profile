@@ -2,6 +2,14 @@
 
 set mouse=
 
+set number             " Enable line numbering
+augroup numbertoggle   " Toggles relativenumber on and off based on mode
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+highlight LineNr ctermfg=black
 "<<-global->>
 
 " @fzf
