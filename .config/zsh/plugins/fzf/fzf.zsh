@@ -5,9 +5,59 @@ __fzfcmd() {
 
 
 
+# ALT-F, - Paste the selected path(s) into the command line    
+__all_file() {    
+  local cmd="fd -H -t=f -c=never -E=$FD_IGNORE . /"    
+  setopt localoptions pipefail no_aliases 2> /dev/null    
+  local item    
+  eval "$cmd" | FZF_DEFAULT_OPTS="$FZF_COLOR --height ${FZF_TMUX_HEIGHT:-40%} --reverse --bind=ctrl-z:ignore ${FZF_DEFAULT_OPTS-}" $(__fzfcmd) -m "$@" | while read item; do
+    echo -n "${(q)item} "    
+  done    
+  local ret=$?    
+  echo    
+  return $ret    
+}    
+    
+fzf-all-file-widget() {    
+  LBUFFER="${LBUFFER}$(__all_file)"    
+  local ret=$?    
+  zle reset-prompt    
+  return $ret    
+}    
+    
+zle -N fzf-all-file-widget    
+bindkey '\ef' fzf-all-file-widget
+
+
+
+# ALT-D, - Paste the selected path(s) into the command line        
+__all_dir() {    
+  local cmd="fd -H -t=d -c=never -E=$FD_IGNORE . /"    
+  setopt localoptions pipefail no_aliases 2> /dev/null    
+  local item    
+  eval "$cmd" | FZF_DEFAULT_OPTS="$FZF_COLOR --height ${FZF_TMUX_HEIGHT:-40%} --reverse --bind=ctrl-z:ignore ${FZF_DEFAULT_OPTS-}" $(__fzfcmd) -m "$@" | while read item; do
+    echo -n "${(q)item} "    
+  done    
+  local ret=$?    
+  echo    
+  return $ret    
+}    
+        
+fzf-all-dir-widget() {    
+  LBUFFER="${LBUFFER}$(__all_dir)"        
+  local ret=$?        
+  zle reset-prompt        
+  return $ret        
+}        
+        
+zle -N fzf-all-dir-widget    
+bindkey '\ed' fzf-all-dir-widget
+
+
+
 # ALT-, - Paste the selected file path(s) into the command line
 __only_file() {
-  local cmd="fd -H -t={f,l,s,p,x} -c=never -E=$FD_IGNORE"
+  local cmd="fd -H -t=f -c=never -E=$FD_IGNORE"
   setopt localoptions pipefail no_aliases 2> /dev/null
   local item
   eval "$cmd" | FZF_DEFAULT_OPTS="$FZF_COLOR --height ${FZF_TMUX_HEIGHT:-40%} --reverse --bind=ctrl-z:ignore ${FZF_DEFAULT_OPTS-}" $(__fzfcmd) -m "$@" | while read item; do
@@ -32,7 +82,7 @@ bindkey '\e,' fzf-file-widget
 
 # ALT-. - Paste the selected dir path(s) into the command line
 __only_dir() {
-  local cmd="fd -H -t d -c=never -E=$FD_IGNORE"
+  local cmd="fd -H -t=d -c=never -E=$FD_IGNORE"
   setopt localoptions pipefail no_aliases 2> /dev/null
   local item
   eval "$cmd" | FZF_DEFAULT_OPTS="$FZF_COLOR --height ${FZF_TMUX_HEIGHT:-40%} --reverse --bind=ctrl-z:ignore ${FZF_DEFAULT_OPTS-}" $(__fzfcmd) -m "$@" | while read item; do                    

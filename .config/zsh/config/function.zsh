@@ -57,19 +57,15 @@ function change_tag_message() {
 # 	usage: @ <parent_branch> [branch]
 #
 function branch_log() {
-	if [ ! -n "$2" ] 
-	then
-		git l "$(git merge-base $1 HEAD)..HEAD"
-	else
-		git l "$(git merge-base $1 $2)..$2"
-	fi
+	test -z "$2" && 2="HEAD" 
+	git l "$(git merge-base $1 $2)..$2"
 }
 
 # merge_base(git): find merge-base of two branch
 # 	usage: @ [--fork-point] <branch> <branch>
 #
 function merge_base() {
-	git merge-base $1 $2 $3 | xargs git sos
+	git sos $(git merge-base $1 $2 $3)
 }
 
 # rebase_branch(git): rebsae current branch form merge-base
@@ -77,18 +73,6 @@ function merge_base() {
 #
 function rebase_branch() {
 	git rbi $(git merge-base $1 HEAD)
-}
-
-# ancestor(git): check ancestor
-# 	usage: @ <branch> <branch>
-#
-function ancestor() {
-	if git merge-base --is-ancestor $1 $2 
-	then
-		echo "... $1 is an ancestor of $2 ..."
-	else
-		echo "... false ..."
-	fi
 }
 
 # branch_gone(git): delete branch has gone
@@ -127,7 +111,7 @@ function pacp() {
 #	usage: @ <pid>
 #
 function fkill() { 
-	(date; ps -ef) | fzf \
+	(date; ps aux) | fzf \
       	--bind='ctrl-r:reload(date; ps -ef)' \
       	--header=$'Press CTRL-R to reload\n\n' --header-lines=2 \
       	--preview='echo {}' --preview-window=down,3,wrap \
@@ -193,4 +177,14 @@ function mcd() {
 	test -d "$1" && print "mkcd: Directory $1 already exists"
 	mkdir -p -- "$1"
 	cd -- "$1"
+}
+
+# extract_same(*): find all suffix in current dir and extract to same directory in target dir
+#       usage: @ <suffix> <directory>
+#
+function extract_same() {
+        test -n "$2" && arg="-C" target="$2"
+        for archive in $(fd $1); do
+        	tar xf $archive --one-top-level $arg $target
+        done
 }

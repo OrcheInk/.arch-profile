@@ -7,7 +7,8 @@ export PAGER="most"
 export EDITOR='nvim'                             
 
 # search ignore
-export COMMON_IGNORE="{.arch-profile,.cache,.local,.config,.git}"
+export COMMON_IGNORE="{$(cat $HOME/.config/ignore/ignore_list)}"
+
 export FD_IGNORE="$COMMON_IGNORE" 
 export RG_IGNORE="!$COMMON_IGNORE/*"
 

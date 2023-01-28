@@ -19,6 +19,8 @@ alias lsa="ls -a .*"
 
 # [D]
 # [E]
+alias env="env | grep -v -e GIT -e % -e \' -e LS_COLOR | sort | most"
+
 # [F]
 # [G]
 
@@ -57,6 +59,22 @@ alias rr='ranger'
 alias rrc='nvim $HOME/.config/ranger/commands.py'
 
 # [S]
+
+# @ systemctl
+alias sys="systemctl"
+alias syst="sys start"
+alias sysp="sys stop"
+alias sysrt="sys restart"
+alias sysrd="sys reload"
+alias syse="sys enable"
+alias sysd="sys disable"
+alias syss="sys status"
+alias sysia="sys is-active"
+alias sysie="sys is-enable"
+alias sysc="sys cat"
+
+# @ sudo
+alias sudo="sudo "
 
 # @ scripts
 alias fq='$ZDOTDIR/scripts/fquery'
